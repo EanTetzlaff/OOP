@@ -1,0 +1,67 @@
+
+i = 1
+myEmployees = {}
+
+while True:
+    print("1: Add an employee")
+    print("2: Delete an employee")
+    print("3: Modify an employee")
+    print("4: Display all employees")
+    print("5: Exit")
+
+    choice = input("Enter your choice: ")
+
+    if choice == "1":
+        name = input("Enter the employee name: ")
+        pay = int(input("Enter the employee pay: "))
+        allowance = int(input("Enter the employee allowance: "))
+        deductions = int(input("Enter the employee deductions: "))
+        taxes = int(input("Enter the employee taxes: "))
+
+        gross_pay = pay + allowance
+        net_pay = gross_pay - deductions - taxes
+
+        myEmployees["e" + str(i)] = {
+        "employee_name": name,
+        "employee_pay": pay,
+        "employee_allowance": allowance,
+        "employee_deductions": deductions,
+        "employee_taxes": taxes,
+        "employee_gross_pay": gross_pay,
+        "employee_net_pay": net_pay
+    }
+        i += 1
+
+    elif choice == "2":
+        delete = input("Enter the employee you want to delete: ")
+        myEmployees.pop(delete)
+
+    elif choice == "3":
+        edit = input("What employee would you like to edit?")
+        new_name = input("Enter the new employee name: ")
+        new_pay = int(input("Enter the employee's new pay: "))
+        new_allowance = int(input("Enter the employee's new allowance: "))
+        new_deductions = int(input("Enter the employee's deductions: "))
+        new_taxes = int(input("Enter the employee's new taxes: "))
+
+        new_gross_pay = new_pay + new_allowance
+        new_net_pay = new_gross_pay - new_deductions - new_taxes
+
+        myEmployees[edit]["employee_name"] = new_name
+        myEmployees[edit]["employee_pay"] = new_pay
+        myEmployees[edit]["employee_allowance"] = new_allowance
+        myEmployees[edit]["employee_deductions"] = new_deductions
+        myEmployees[edit]["employee_taxes"] = new_taxes
+        myEmployees[edit]["employee_gross_pay"] = new_gross_pay
+        myEmployees[edit]["employee_net_pay"] = new_net_pay
+
+    elif choice == "4":
+        for key, value in myEmployees.items():
+            print("Employee ID",key)
+            for kkey, vvalue in value.items():
+                print(kkey,":",vvalue)
+
+    elif choice == "5":
+        break
+    else:
+        print("Invalid option selected")
