@@ -52,38 +52,49 @@ User(997, "Book b", "Ean", "683 Owl Ave", "683-583-5839","Ean@gmail.com"),
 User(998, "Book c", "Justus", "652 Hutch Dr", "598-473-4859", "Justus@jbu.edu")
 ]
 
-class Book:
-    def add_book(self):
-        print("Add a book")
-        book_id = input("Enter your book ID: ")
-        title = input("Enter your book title: ")
-        author_id = input("Enter your book author: ")
-        publisher = input("Enter your book publisher: ")
-        year_of_publication = input("Enter your book year: ")
-        books.append(Book(book_id, title, author_id, publisher, year_of_publication))
-        print("Book Added")
+def add_book():
+    print("Add a book")
+    book_id = input("Enter your book ID: ")
+    title = input("Enter your book title: ")
+    author_id = input("Enter your book author: ")
+    publisher = input("Enter your book publisher: ")
+    year_of_publication = input("Enter your book year: ")
+    books.append(Book(book_id, title, author_id, publisher, year_of_publication))
+    print("Book Added")
 
-    def add_author(self):
-        print("Add a author")
-        author_id = input("Enter your author ID: ")
-        author_name = input("Enter your author name: ")
-        affiliation = input("Enter your author affiliation: ")
-        country = input("Enter your author country: ")
-        phone = input("Enter your author phone: ")
-        emailID = input("Enter your author email ID: ")
-        authors.append(Author(author_id, author_name, affiliation, country, phone, emailID))
-        print("Author Added")
+def add_author():
+    print("Add a author")
+    author_id = input("Enter your author ID: ")
+    author_name = input("Enter your author name: ")
+    affiliation = input("Enter your author affiliation: ")
+    country = input("Enter your author country: ")
+    phone = input("Enter your author phone: ")
+    emailID = input("Enter your author email ID: ")
+    authors.append(Author(author_id, author_name, affiliation, country, phone, emailID))
+    print("Author Added")
 
-    def add_user(self):
-        print("Add a user")
-        user_id = input("Enter your user ID: ")
-        name = input("Enter your user name: ")
-        password = input("Enter your user password: ")
-        address = input("Enter your user address: ")
-        phone = input("Enter your user phone: ")
-        emailID = input("Enter your user email ID: ")
-        users.append(User(user_id, name, password, address, phone, emailID))
-        print("User Added")
+def add_user():
+    print("Add a user")
+    user_id = input("Enter your user ID: ")
+    name = input("Enter your user name: ")
+    password = input("Enter your user password: ")
+    address = input("Enter your user address: ")
+    phone = input("Enter your user phone: ")
+    emailID = input("Enter your user email ID: ")
+    users.append(User(user_id, name, password, address, phone, emailID))
+    print("User Added")
+
+def display_books():
+    for book in books:
+        book.display()
+
+def display_authors():
+    for author in authors:
+        author.display()
+
+def display_users():
+    for user in users:
+        user.display()
 
 while True:
     print("Library Menu")
@@ -100,16 +111,16 @@ while True:
     if choice == "1":
         add_book()
     elif choice == "2":
-        add_author
+        add_author()
     elif choice == "3":
-        add_user
+        add_user()
     elif choice == "4":
-        display_books
+        display_books()
     elif choice == "5":
-        display_authors
+        display_authors()
     elif choice == "6":
-        display_users
+        display_users()
     elif choice == "7":
-        exit
+        break
     else:
         break
