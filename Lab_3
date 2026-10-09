@@ -47,9 +47,9 @@ Author(3, "Logan", "C&D", "Canada", 312-571-4819, "Logan@icloud.com")
 ]
 
 users = [
-User(996, "Book a", "Jack", "123 Street St", "582=583-5839", "Jack@outlook.com"),
-User(997, "Book b", "Ean", "683 Owl Ave", "683-583-5839","Ean@gmail.com"),
-User(998, "Book c", "Justus", "652 Hutch Dr", "598-473-4859", "Justus@jbu.edu")
+User(996, "Jack", "Password125", "123 Street St", "582=583-5839", "Jack@outlook.com"),
+User(997, "Ean", "Password124", "683 Owl Ave", "683-583-5839","Ean@gmail.com"),
+User(998, "Justus", "Password123", "652 Hutch Dr", "598-473-4859", "Justus@jbu.edu")
 ]
 
 def add_book():
