@@ -8,8 +8,8 @@ class Customer:
         self.credit_card_no = credit_card_no
 
     def transfer_funds(self, beneficiary_object, amount):
-        if self.balance < amount:
-            self.balance -= amount
+        if self.balance >= amount:
+            self.balance = amount
             beneficiary_object.balance += amount
             print("Balance Transfer Secussful")
 
@@ -27,21 +27,21 @@ class Card:
         print(f"card_no: {self.card_no}, cvv: {self.cvv}, expiry_date: {self.expiry_date}, balance: {self.balance}")
 
 customer_list = [
-Customer(123, "Jones", 987, "$1,000.00",582_482_4722),
-Customer(456, "Andrew", 654, "$100.00",573_482_3859),
-Customer(789, "Jackson", 321, "$10.00",105_382_4029)
+Customer(123, "Jones", 987, 1.00,582_482_4722),
+Customer(456, "Andrew", 654, 100.00,573_482_3859),
+Customer(789, "Jackson", 321, 10.00,105_382_4029)
 ]
 
 card_list = [
-Card(123_578_3829, 928, "10/28", "$30.50"),
-Card(583_184_3820, 204, "9/27", "$10.02"),
-Card(183_482_4929, 300, "2/29", "$50.60")
+Card(123_578_3829, 928, "10/28", 30.50),
+Card(583_184_3820, 204, "9/27", 10.02),
+Card(183_482_4929, 300, "2/29", 50.60)
 ]
 
 
 def add_customer_objects():
     print("Add a customer")
-    cid = input("Enter the customer's card number: ")
+    cid = input("Enter the customer ID number: ")
     cname = input("Enter the customer's name: ")
     acc_no = input("Enter the customer's account number: ")
     balance = input("Enter the customer's balance: ")
@@ -60,7 +60,7 @@ def add_card_objects ():
 
 def create_customer_objects():
     print("Create Customer")
-    cid = input("Enter the customer's card number ")
+    cid = input("Enter the ID number ")
     cname = input("Enter the customer's name: ")
     acc_no = input("Enter the customer's account number ")
     balance = input("Enter the customer's balance: ")
@@ -76,3 +76,58 @@ def create_card_objects():
     balance = input("Enter the card's balance: ")
     card_list.append(Card(card_no, cvv, expiry_date, balance))
     print("Card Added")
+
+def transfer_funds_between_customer_objects():
+    print("Transfer funds between customers")
+    sender_cid = int(input("Enter the sender's ID number "))
+    beneficiaricy = int(input("Enter the beneficiaricy ID number "))
+    amount = int(input("Enter the amount needed to transfer: "))
+    customer_list[sender_cid].transfer_funds(customer_list[beneficiaricy], amount)
+
+
+def display_customers():
+    for customer in customer_list:
+        customer.display()
+
+def display_card():
+    for card in card_list:
+        card.display()
+
+def display_card_info():
+    for card in card_list:
+        card.display()
+
+def display_customer_info():
+    for customer in customer_list:
+        customer.display()
+
+def assign_card_objects():
+    for customer in customer_list:
+        customer.display
+
+while True:
+    print("1. Create customer objects")
+    print("2. Create card objects")
+    print("3. Transfer funds between customer objects")
+    print("4. Assign card objets to customer objects")
+    print("5. Display customer info")
+    print("6. Display card info")
+    print("7. Exit")
+
+    choice = input("Enter your choice: ")
+    if choice == "1":
+        create_customer_objects()
+    elif choice == "2":
+        create_card_objects()
+    elif choice == "3":
+        transfer_funds_between_customer_objects()
+    elif choice == "4":
+        assign_card_objects()
+    elif choice == "5":
+        display_customer_info()
+    elif choice == "6":
+        display_card_info()
+    elif choice == "7":
+        break
+    else:
+        break
