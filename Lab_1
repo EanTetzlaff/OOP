@@ -1,0 +1,30 @@
+while True:
+print("1: area of a rectangle")
+print("2: volume of a cube")
+print("3: area of a circle")
+print("4: circumference of a circle")
+print("5: exit")
+choice = input ("Enter your choice")
+if choice == "1":
+length = int(input ("Enter length of rectangle"))
+width = int(input ("Enter width of rectangle"))
+area = length * width
+print ("area of a rectangle",area)
+elif choice == "2":
+length = int(input("Enter length of rectangle"))
+width = int(input("Enter width of rectangle"))
+height = int(input("Enter height of rectangle"))
+volume = length * width * height
+print ("volume of a cube", volume)
+elif choice == "3":
+area = int(input ("Enter radius of a circle"))
+radius = int(input("Enter radius of circle"))
+area = 3.14 * radius
+print ("area of a circle", area)
+elif choice == "4":
+circumference = int(input ("Enter the radius"))
+radius = circumference
+circumference = 3.14 * radius * radius
+print ("circumference of a circle", radius)
+elif choice == "5":
+print ("e
