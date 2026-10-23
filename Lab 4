@@ -11,7 +11,7 @@ class Customer:
         if self.balance >= amount:
             self.balance = amount
             beneficiary_object.balance += amount
-            print("Balance Transfer Secussful")
+            print("Balance Transfer Successful")
 
     def display(self):
         print(f"cid: {self.cid}, cname: {self.cname}, acc_no: {self.acc_no}, balance: {self.balance}, credit_card_no {self.credit_card_no}")
