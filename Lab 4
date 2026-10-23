@@ -1,0 +1,39 @@
+import pickle
+from asyncio import run
+
+class Customer:
+    def __init__(self, cid, cname, acc_no, balance, credit_card_no, transfer_funds, beneficiary_cust_object, amount):
+        self.cid = cid
+        self.cname = cname
+        self.acc_no = acc_no
+        self.balance = balance
+        self.credit_card_no = credit_card_no
+        self.transfer_funds = transfer_funds
+        self.beneficiary_cust_object = beneficiary_cust_object
+        self.amount = amount
+
+    def display(self):
+        print(f"cid: {self.cid}, cname: {self.cname}, acc_no: {self.acc_no}, balance: {self.balance}, credit_card_no {self.credit_card_no}, transfer_funds {self.transfer_funds}, beneficiary_cust_object {self.beneficiary_cust_object}, amount: {self.amount}")
+
+class Card:
+    def __init__(self, card_no, cvv, expiry_date, balance):
+        self.card_no = card_no
+        self.cvv = cvv
+        self.expiry_date = expiry_date
+        self.balance = balance
+        
+
+    def display(self):
+        print(f"card_no: {self.card_no}, cvv: {self.cvv}, expiry_date: {self.expiry_date}, balance: {self.balance}")
+
+Customers = [
+Customer(123, "Jones", 987, "$1,000.00",582_482_4722),
+Customer(456, "Andrew", 654, "$100.00",573_482_3859),
+Customer(789, "Jackson", 321, "$10.00",105_382_4029)
+]
+
+Card = [
+Card(123_578_3829, 9298, 10/28, "$30.50"),
+Card(583_184_3820, 204, 9/27, "$10.02"),
+Card(183_482_4929, 300, 2/29, "$50.60")
+]
