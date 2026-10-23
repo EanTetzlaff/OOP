@@ -1,19 +1,20 @@
-import pickle
-from asyncio import run
 
 class Customer:
-    def __init__(self, cid, cname, acc_no, balance, credit_card_no, transfer_funds, beneficiary_cust_object, amount):
+    def __init__(self, cid, cname, acc_no, balance, credit_card_no):
         self.cid = cid
         self.cname = cname
         self.acc_no = acc_no
         self.balance = balance
         self.credit_card_no = credit_card_no
-        self.transfer_funds = transfer_funds
-        self.beneficiary_cust_object = beneficiary_cust_object
-        self.amount = amount
+
+    def transfer_funds(self, beneficiary_object, amount):
+        if self.balance < amount:
+            self.balance -= amount
+            beneficiary_object.balance += amount
+            print("Balance Transfer Secussful")
 
     def display(self):
-        print(f"cid: {self.cid}, cname: {self.cname}, acc_no: {self.acc_no}, balance: {self.balance}, credit_card_no {self.credit_card_no}, transfer_funds {self.transfer_funds}, beneficiary_cust_object {self.beneficiary_cust_object}, amount: {self.amount}")
+        print(f"cid: {self.cid}, cname: {self.cname}, acc_no: {self.acc_no}, balance: {self.balance}, credit_card_no {self.credit_card_no}")
 
 class Card:
     def __init__(self, card_no, cvv, expiry_date, balance):
@@ -21,19 +22,57 @@ class Card:
         self.cvv = cvv
         self.expiry_date = expiry_date
         self.balance = balance
-        
 
     def display(self):
         print(f"card_no: {self.card_no}, cvv: {self.cvv}, expiry_date: {self.expiry_date}, balance: {self.balance}")
 
-Customers = [
+customer_list = [
 Customer(123, "Jones", 987, "$1,000.00",582_482_4722),
 Customer(456, "Andrew", 654, "$100.00",573_482_3859),
 Customer(789, "Jackson", 321, "$10.00",105_382_4029)
 ]
 
-Card = [
-Card(123_578_3829, 9298, 10/28, "$30.50"),
-Card(583_184_3820, 204, 9/27, "$10.02"),
-Card(183_482_4929, 300, 2/29, "$50.60")
+card_list = [
+Card(123_578_3829, 928, "10/28", "$30.50"),
+Card(583_184_3820, 204, "9/27", "$10.02"),
+Card(183_482_4929, 300, "2/29", "$50.60")
 ]
+
+
+def add_customer_objects():
+    print("Add a customer")
+    cid = input("Enter the customer's card number: ")
+    cname = input("Enter the customer's name: ")
+    acc_no = input("Enter the customer's account number: ")
+    balance = input("Enter the customer's balance: ")
+    credit_card_no = input("Enter the customer's credit card number: ")
+    customer_list.append(Customer(cid, cname, acc_no, balance, credit_card_no))
+    print("Customer Added")
+
+def add_card_objects ():
+    print("Credit Card Info")
+    card_no = input("Enter your card number ")
+    cvv = input("Enter your card's CVV: ")
+    expiry_date = input("Enter your card's expiry date: ")
+    balance = input("Enter your card's balance: ")
+    card_list.append(Card(card_no, cvv, expiry_date, balance))
+    print("Credit Card Added")
+
+def create_customer_objects():
+    print("Create Customer")
+    cid = input("Enter the customer's card number ")
+    cname = input("Enter the customer's name: ")
+    acc_no = input("Enter the customer's account number ")
+    balance = input("Enter the customer's balance: ")
+    credit_card_no = input("Enter the customer's credit card number ")
+    customer_list.append(Customer(cid, cname, acc_no, balance, credit_card_no))
+    print("Customer Added")
+
+def create_card_objects():
+    print("Create Card")
+    card_no = input("Enter your the card number ")
+    cvv = input("Enter the card's CVV: ")
+    expiry_date = input("Enter the card's expiry date: ")
+    balance = input("Enter the card's balance: ")
+    card_list.append(Card(card_no, cvv, expiry_date, balance))
+    print("Card Added")
