@@ -82,6 +82,7 @@ def assign_card_objects():
     customer = int(input("Enter the customer ID number"))
     card_no = int(input("Enter the card number "))
     customer_list[customer].credit_card_no = card_list[card_no].card_no
+    print("Card Added")
 
 def transfer_funds_between_customer_objects():
     print("Transfer funds between customers")
