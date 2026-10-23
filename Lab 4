@@ -41,7 +41,7 @@ Card(183_482_4929, 300, "2/29", 50.60)
 
 def add_customer_objects():
     print("Add a customer")
-    cid = input("Enter the customer ID number: ")
+    cid = int(input("Enter the customer ID number: "))
     cname = input("Enter the customer's name: ")
     acc_no = input("Enter the customer's account number: ")
     balance = input("Enter the customer's balance: ")
@@ -77,6 +77,12 @@ def create_card_objects():
     card_list.append(Card(card_no, cvv, expiry_date, balance))
     print("Card Added")
 
+def assign_card_objects():
+    print("Assign Card")
+    customer = int(input("Enter the customer ID number"))
+    card_no = int(input("Enter the card number "))
+    customer_list[customer].credit_card_no = card_list[card_no].card_no
+
 def transfer_funds_between_customer_objects():
     print("Transfer funds between customers")
     sender_cid = int(input("Enter the sender's ID number "))
@@ -100,10 +106,6 @@ def display_card_info():
 def display_customer_info():
     for customer in customer_list:
         customer.display()
-
-def assign_card_objects():
-    for customer in customer_list:
-        customer.display
 
 while True:
     print("1. Create customer objects")
