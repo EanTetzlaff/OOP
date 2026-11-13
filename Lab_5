@@ -63,3 +63,50 @@ faculty = [
     Faculty_Master(3, "Dr. Smith", "Computer Science", "CS1230" "ENG1303"),
     Faculty_Master(4, "Dr. Davis", "Artificial Intelligence", "AI2150" "FLM1291"),
     Faculty_Master(5, "Dr. Newton", "Film", "FLM2130" "AI1204")
+]
+
+for s in students:
+    cursor.execute(f"INSERT IGNORE INTO Student_Master VALUES ({s.stu_id}, '{s.stu_name}', '{s.stu_major}', '{s.stu_courses}', '{s.stu_cgpa}') ")
+
+for f in faculty:
+    cursor.execute(f"INSERT IGNORE INTO Faculty_Master VALUES ({f.fac_id}, '{f.fac_name}', '{f.fac_department}', '{f.fac_teaches_courses}') ")
+
+db.commit()
+print("5 student and faculty members created!")
+
+def display_students():
+    cursor.execute("SELECT * FROM Student_Master")
+    rows = cursor.fetchall()
+    print("\nStudent Master")
+    for row in rows:
+        print(f"ID: {row[0]}, Name: {row[1]}, Major: {row[2]}, Course: {row[3]}, GPA: {row[4]}")
+
+def display_faculty():
+    cursor.execute("SELECT * FROM Faculty_Master")
+    rows = cursor.fetchall()
+    print("\nFaculty Master")
+    for row in rows:
+        print(f"ID: {row[0]}, Name: {row[1]}, Major: {row[2]}, Course: {row[3]}")
+
+while True:
+    print("\n1. Display Students")
+    print("2. Display Faculty")
+    print("3. Display Students & Faculty")
+    print("4. Exit")
+
+    choice = input("Enter your choice: ")
+
+    if choice == "1":
+        display_students()
+    elif choice == "2":
+        display_faculty()
+    elif choice == "3":
+        display_students()
+        display_faculty()
+    elif choice == "4":
+        cursor.close()
+        db.close()
+        print("Database Connection Closed!")
+        break
+    else:
+        print("Please enter a valid choice!")
