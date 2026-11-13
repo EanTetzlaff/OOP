@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS Student_Master (
     stu_id INT PRIMARY KEY,
     stu_name VARCHAR(50),
     stu_major VARCHAR(50),
-    stu_courses VARCHAR(100)
+    stu_courses VARCHAR(100),
     stu_cgpa VARCHAR(100)
 )
 """)
