@@ -65,10 +65,10 @@ faculty = [
     Faculty_Master(294, "Dr. Newton", "Cybersecurity", "CYB2130" "AI1204") #blackbelt
 ]
 
-for s in students: #kv
+for s in students:
     cursor.execute(f"INSERT IGNORE INTO Student_Master VALUES ({s.stu_id}, '{s.stu_name}', '{s.stu_major}', '{s.stu_courses}', '{s.stu_cgpa}') ")
 
-for f in faculty: #kv
+for f in faculty:
     cursor.execute(f"INSERT IGNORE INTO Faculty_Master VALUES ({f.fac_id}, '{f.fac_name}', '{f.fac_department}', '{f.fac_teaches_courses}') ")
 
 db.commit()
