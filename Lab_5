@@ -1,0 +1,65 @@
+import mysql.connector
+db = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    password="",
+    database="Student&Faculty_Master"
+)
+cursor = db.cursor()
+
+cursor.execute( """
+CREATE TABLE IF NOT EXISTS Student_Master (
+    stu_id INT PRIMARY KEY,
+    stu_name VARCHAR(50),
+    stu_major VARCHAR(50),
+    stu_courses VARCHAR(100)
+    stu_cgpa VARCHAR(100)
+)
+""")
+print("Student Master table created successfully!")
+
+cursor.execute( """
+CREATE TABLE IF NOT EXISTS Faculty_Master(
+    fac_id INT PRIMARY KEY,
+    fac_name VARCHAR(50),
+    fac_department VARCHAR(50),
+    fac_teaches_courses VARCHAR(100)
+)
+""")
+print("Faculty Master table created successfully!")
+
+class Student_Master:
+    def __init__(self, stu_id, stu_name, stu_major, stu_courses, stu_cgpa):
+        self.stu_id = stu_id
+        self.stu_name = stu_name
+        self.stu_major = stu_major
+        self.stu_courses = stu_courses
+        self.stu_cgpa = stu_cgpa
+
+    def display(self):
+        print(f"stu_id: {self.stu_id}, stu_name: {self.stu_name}, stu_major: {self.stu_major}, stu_courses: {self.stu_courses}, stu_cgpa {self.stu_cgpa}")
+
+class Faculty_Master:
+    def __init__(self, fac_id, fac_name, fac_department, fac_teaches_courses):
+        self.fac_id = fac_id
+        self.fac_name = fac_name
+        self.fac_department = fac_department
+        self.fac_teaches_courses = fac_teaches_courses
+
+    def display(self):
+        print(f"fac_id: {self.fac_id}, fac_name: {self.fac_name}, fac_department: {self.fac_department}, fac_teaches_courses: {self.fac_teaches_courses}")
+
+students = [
+    Student_Master(1, "Ean Tetzlaff", "Computer Science", "CS1250", 3.92),
+    Student_Master(2, "Andrew Tennison", "Business Administration", "BUS1020", 3.49),
+    Student_Master(3, "Joseph Smith", "Computer Science", "CS1230", 3.21),
+    Student_Master(4, "Jackson Davis", "Artificial Intelligence", "AI2150", 3.0),
+    Student_Master(5, "Tyler Grass", "Film", "FLM2130", 3.02)
+]
+
+faculty = [
+    Faculty_Master(1, "Dr. Justus", "Computer Science", "CS1250" "MUG2043"),
+    Faculty_Master(2, "Dr. Tetzlaff", "Business Administration", "BUS1020" "BUS1100"),
+    Faculty_Master(3, "Dr. Smith", "Computer Science", "CS1230" "ENG1303"),
+    Faculty_Master(4, "Dr. Davis", "Artificial Intelligence", "AI2150" "FLM1291"),
+    Faculty_Master(5, "Dr. Newton", "Film", "FLM2130" "AI1204")
